@@ -1,6 +1,7 @@
 package sg.edu.nus.iss.workshop27.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
@@ -15,17 +16,13 @@ import static sg.edu.nus.iss.workshop27.Constants.*;
 public class MongoDBConfig {
 
     // Inject the mongo connection string
-    // @Value("${mongo.url}")
+    @Value("${mongo.url}")
     private String mongoUrl;
-
-    @Autowired
-    Environment env;
 
     // create and initialise mongotemplate
     @Bean
     public MongoTemplate createTemplate() {
 
-        mongoUrl = env.getProperty("MONGO_URL");
         // Create a MongoClient with the mongo connection string
         MongoClient client = MongoClients.create(mongoUrl);
 

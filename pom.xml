@@ -5,9 +5,20 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.2</version>
+		<version>3.0.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<activation>
+				<property>
+					<name>spring.profiles.active</name>
+					<value>dev</value>
+				</property>
+			</activation>
+		</profile>
+    </profiles>
 	<groupId>sg.edu.nus.iss</groupId>
 	<artifactId>workshop27</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
